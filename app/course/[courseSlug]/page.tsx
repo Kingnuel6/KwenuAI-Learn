@@ -35,21 +35,21 @@ export default function CoursePage({
   const currentLessonId = firstIncomplete ? firstIncomplete.id : course.lessons[course.lessons.length - 1]?.id
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div className="min-h-screen bg-light-bg">
       <div className="mx-auto max-w-3xl px-6 py-12">
-        <Link href="/" className="mb-8 inline-block font-body text-sm text-white/50 hover:text-white">
+        <Link href="/" className="mb-8 inline-block font-body text-sm text-light-text-secondary hover:text-light-text">
           ← Home
         </Link>
 
         <span className="mb-3 block font-body text-xs font-medium text-brand-purple">
           {course.tag}
         </span>
-        <h1 className="mb-2 font-heading text-3xl font-bold text-white">
+        <h1 className="mb-2 font-heading text-3xl font-bold text-light-text">
           {course.title}
         </h1>
-        <p className="mb-6 font-body text-white/50">{course.tagline}</p>
+        <p className="mb-6 font-body text-light-text-secondary">{course.tagline}</p>
 
-        <div className="mb-6 flex items-center gap-3 font-body text-sm text-white/50">
+        <div className="mb-6 flex items-center gap-3 font-body text-sm text-light-text-secondary">
           <span>{course.lessonCount} lessons</span>
           <span>·</span>
           <span>{course.totalDuration}</span>
@@ -74,7 +74,7 @@ export default function CoursePage({
             if (lessons.length === 0) return null
             return (
               <section key={tier}>
-                <h2 className="mb-3 font-heading text-lg font-semibold text-white">
+                <h2 className="mb-3 font-heading text-lg font-semibold text-light-text">
                   {TIER_LABELS[tier]}
                 </h2>
                 <div className="flex flex-col gap-3">

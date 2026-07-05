@@ -9,13 +9,13 @@ export default function ProgressBar({
 
   return (
     <div>
-      <div className="mb-2 flex items-center justify-between font-body text-xs text-white/50">
+      <div className="mb-2 flex items-center justify-between font-body text-xs text-light-text-secondary">
         <span>
           {completed} / {total} lessons complete
         </span>
         <span>{percent}%</span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-dark-border">
+      <div className="h-2 w-full overflow-hidden rounded-full bg-light-border">
         <div
           className="h-full rounded-full bg-brand-purple transition-all"
           style={{ width: `${percent}%` }}

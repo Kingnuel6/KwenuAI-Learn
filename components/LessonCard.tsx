@@ -19,20 +19,20 @@ export default function LessonCard({
       href={`/course/${courseSlug}/lesson/${lesson.id}`}
       className={`flex items-center gap-4 rounded-xl border p-4 transition-colors ${
         isCurrent
-          ? 'border-brand-purple bg-dark-card'
-          : 'border-dark-border bg-dark-card hover:border-white/20'
+          ? 'border-brand-purple bg-light-card'
+          : 'border-light-border bg-light-card hover:border-brand-purple/40'
       }`}
     >
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-dark-border font-body text-sm text-white/50">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-light-border font-body text-sm text-light-text-secondary">
         {completed ? '✓' : locked ? '🔒' : lesson.id}
       </div>
       <div className="flex-1">
-        <h4 className="font-heading text-base font-semibold text-white">
+        <h4 className="font-heading text-base font-semibold text-light-text">
           {lesson.title}
         </h4>
-        <p className="font-body text-sm text-white/50">{lesson.description}</p>
+        <p className="font-body text-sm text-light-text-secondary">{lesson.description}</p>
       </div>
-      <span className="shrink-0 font-body text-xs text-white/50">
+      <span className="shrink-0 font-body text-xs text-light-text-secondary">
         {lesson.duration}
       </span>
     </Link>

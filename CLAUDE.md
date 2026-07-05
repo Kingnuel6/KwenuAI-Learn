@@ -34,6 +34,8 @@
 
 ## BRAND — APPLY EXACTLY
 
+> **Update (Khamzi override):** The whole site is light-themed now — no dark pages anywhere, including course/lesson pages. Fonts are `Poppins` (headings) + `Inter` (body), replacing Syne/DM Sans.
+
 ### Home / Catalogue Page
 - Background: `#F8F7FF` (light lavender-white)
 - Primary text: `#0D0E1A`
@@ -41,16 +43,16 @@
 - Accent / CTA: `#8B3CF7` (KwenuAI purple)
 - Borders: `#E8E5F0`
 - Card background: `#FFFFFF`
-- Font: `Syne` (headings) + `DM Sans` (body) — load from Google Fonts
+- Font: `Poppins` (headings) + `Inter` (body) — load from Google Fonts
 
 ### Course / Lesson Pages
-- Background: `#0D0E1A` (dark navy)
-- Primary text: `#FFFFFF`
-- Secondary text: `rgba(255,255,255,0.5)`
+- Background: `#F8F7FF` (same light lavender-white as home — no dark theme)
+- Primary text: `#0D0E1A`
+- Secondary text: `#6B6A80`
 - Accent: `#8B3CF7`
-- Card background: `rgba(255,255,255,0.03)`
-- Border: `rgba(255,255,255,0.08)`
-- Font: Same — `Syne` + `DM Sans`
+- Card background: `#FFFFFF`
+- Border: `#E8E5F0`
+- Font: Same — `Poppins` + `Inter`
 
 ### Brand Rules
 - "Powered by KwenuAI" must appear in the footer of every page

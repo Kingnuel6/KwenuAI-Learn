@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const syne = Syne({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-poppins",
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-inter",
   weight: ["400", "500", "700"],
 });
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${syne.variable} ${dmSans.variable} font-body antialiased flex min-h-screen flex-col`}
+        className={`${poppins.variable} ${inter.variable} font-body antialiased flex min-h-screen flex-col`}
       >
         <div className="flex-1">{children}</div>
         <Footer />

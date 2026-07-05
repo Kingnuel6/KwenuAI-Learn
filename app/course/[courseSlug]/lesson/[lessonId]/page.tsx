@@ -33,28 +33,28 @@ export default function LessonPage({
   }
 
   return (
-    <div className="min-h-screen bg-dark-bg">
+    <div className="min-h-screen bg-light-bg">
       <div className="mx-auto max-w-3xl px-6 py-12">
-        <nav className="mb-6 flex flex-wrap items-center gap-2 font-body text-sm text-white/50">
-          <Link href="/" className="hover:text-white">
+        <nav className="mb-6 flex flex-wrap items-center gap-2 font-body text-sm text-light-text-secondary">
+          <Link href="/" className="hover:text-light-text">
             Home
           </Link>
           <span>→</span>
-          <Link href={`/course/${course.slug}`} className="hover:text-white">
+          <Link href={`/course/${course.slug}`} className="hover:text-light-text">
             {course.title}
           </Link>
           <span>→</span>
-          <span className="text-white">{lesson.title}</span>
+          <span className="text-light-text">{lesson.title}</span>
         </nav>
 
         <div className="mb-6">
           <VideoPlayer youtubeId={lesson.youtubeId} />
         </div>
 
-        <h1 className="mb-2 font-heading text-2xl font-bold text-white">
+        <h1 className="mb-2 font-heading text-2xl font-bold text-light-text">
           {lesson.title}
         </h1>
-        <p className="mb-8 font-body text-white/50">{lesson.description}</p>
+        <p className="mb-8 font-body text-light-text-secondary">{lesson.description}</p>
 
         <button
           onClick={handleMarkComplete}
@@ -63,11 +63,11 @@ export default function LessonPage({
           Mark as complete
         </button>
 
-        <div className="flex items-center justify-between border-t border-dark-border pt-6 font-body text-sm">
+        <div className="flex items-center justify-between border-t border-light-border pt-6 font-body text-sm">
           {prevLesson ? (
             <Link
               href={`/course/${course.slug}/lesson/${prevLesson.id}`}
-              className="text-white/50 hover:text-white"
+              className="text-light-text-secondary hover:text-light-text"
             >
               ← {prevLesson.title}
             </Link>
@@ -77,7 +77,7 @@ export default function LessonPage({
           {nextLesson ? (
             <Link
               href={`/course/${course.slug}/lesson/${nextLesson.id}`}
-              className="text-white/50 hover:text-white"
+              className="text-light-text-secondary hover:text-light-text"
             >
               {nextLesson.title} →
             </Link>
