@@ -40,7 +40,7 @@ export const courses: Course[] = [
         description: 'Teach Claude who you are — once.',
         duration: '2 min',
         tier: 'foundation',
-        youtubeId: null,
+        youtubeId: 'I08JKsmOU70',
       },
       {
         id: 2,
@@ -48,7 +48,7 @@ export const courses: Course[] = [
         description: 'Teach Claude how other people think.',
         duration: '2 min',
         tier: 'foundation',
-        youtubeId: null,
+        youtubeId: 'b4Yr-sqnYrc',
       },
       {
         id: 3,
@@ -56,7 +56,7 @@ export const courses: Course[] = [
         description: 'How to talk to Claude and get precise outputs every time.',
         duration: '2 min',
         tier: 'foundation',
-        youtubeId: null,
+        youtubeId: 'M3eitCdLB-4',
       },
       {
         id: 4,
@@ -64,7 +64,7 @@ export const courses: Course[] = [
         description: 'Claude can see images and search the internet live.',
         duration: '2 min',
         tier: 'expanding',
-        youtubeId: null,
+        youtubeId: 'lgrIhPWgG4Y',
       },
       {
         id: 5,
@@ -72,7 +72,7 @@ export const courses: Course[] = [
         description: 'Build your personal AI operating system.',
         duration: '2 min',
         tier: 'expanding',
-        youtubeId: null,
+        youtubeId: '4ULY9o1WIHo',
       },
       {
         id: 6,
@@ -80,7 +80,7 @@ export const courses: Course[] = [
         description: 'Your company headquarters inside Claude.',
         duration: '2 min',
         tier: 'expanding',
-        youtubeId: null,
+        youtubeId: '38asE44PqyY',
       },
       {
         id: 7,
@@ -88,7 +88,7 @@ export const courses: Course[] = [
         description: 'Give Claude a permanent job to do.',
         duration: '2 min',
         tier: 'power',
-        youtubeId: null,
+        youtubeId: 'lTuYtGeQTKA',
       },
       {
         id: 8,
@@ -96,7 +96,7 @@ export const courses: Course[] = [
         description: 'Your framework for building permanent AI staff.',
         duration: '2 min',
         tier: 'power',
-        youtubeId: null,
+        youtubeId: '3l_RYdUP_Lw',
       },
       {
         id: 9,
@@ -104,7 +104,7 @@ export const courses: Course[] = [
         description: 'Plug Claude into your calendar, email, and Drive.',
         duration: '2 min',
         tier: 'power',
-        youtubeId: null,
+        youtubeId: 'HDJ_99kVDJg',
       },
     ],
   },
