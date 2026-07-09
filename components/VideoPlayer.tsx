@@ -8,6 +8,7 @@ export default function VideoPlayer({ youtubeId }: { youtubeId: string | null })
           title="Lesson video"
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          sandbox="allow-scripts allow-same-origin allow-presentation"
         />
       ) : (
         <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
