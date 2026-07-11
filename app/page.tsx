@@ -14,7 +14,7 @@ export default function Home() {
           Mini-courses for The AI Trybe
         </h1>
         <p className="mb-10 font-body text-light-text-secondary">
-          Free, short, video-based courses. No login, no paywall — just pick a
+          Free, short, video-based courses. No login, no paywall. Just pick a
           course and start learning.
         </p>
 

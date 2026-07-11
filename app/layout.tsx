@@ -18,7 +18,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "KwenuAI Learn",
   description:
-    "Free mini-courses for The AI Trybe — KwenuAI's WhatsApp learning community for non-technical Nigerians.",
+    "Free mini-courses for The AI Trybe, KwenuAI's WhatsApp learning community for non-technical Nigerians.",
 };
 
 export default function RootLayout({

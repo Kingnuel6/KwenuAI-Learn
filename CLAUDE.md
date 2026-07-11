@@ -1,4 +1,4 @@
-# CLAUDE.md — KwenuAI Learn Portal
+# CLAUDE.md: KwenuAI Learn Portal
 
 > This file is read by Claude Code at the start of every session.
 > Follow every instruction here precisely. Do not deviate unless Khamzi explicitly overrides a rule.
@@ -7,7 +7,7 @@
 
 ## PROJECT OVERVIEW
 
-**What this is:** A free, open-access mini-course portal for The AI Trybe — KwenuAI's WhatsApp learning community for non-technical Nigerians.
+**What this is:** A free, open-access mini-course portal for The AI Trybe, KwenuAI's WhatsApp learning community for non-technical Nigerians.
 
 **What it does:** Hosts short video-based mini-courses. Each course contains sequentially ordered lessons. Videos are generated via NotebookLM and embedded as YouTube/video embeds. No login. No paywall. Access via direct link.
 
@@ -17,7 +17,7 @@
 
 ---
 
-## TECH STACK — DO NOT DEVIATE
+## TECH STACK: DO NOT DEVIATE
 
 | Layer | Choice | Notes |
 |-------|--------|-------|
@@ -28,13 +28,13 @@
 | Auth | None | Portal is fully public, no login required |
 | Database | None | Course data lives in static TypeScript config files |
 | Video | YouTube embed (iframe) | NotebookLM videos uploaded to YouTube first, then embedded |
-| Progress tracking | localStorage | No backend. Browser-side only. Does not sync across devices — this is acceptable |
+| Progress tracking | localStorage | No backend. Browser-side only. Does not sync across devices, this is acceptable |
 
 ---
 
-## BRAND — APPLY EXACTLY
+## BRAND: APPLY EXACTLY
 
-> **Update (Khamzi override):** The whole site is light-themed now — no dark pages anywhere, including course/lesson pages. Fonts are `Poppins` (headings) + `Inter` (body), replacing Syne/DM Sans.
+> **Update (Khamzi override):** The whole site is light-themed now: no dark pages anywhere, including course/lesson pages. Fonts are `Poppins` (headings) + `Inter` (body), replacing Syne/DM Sans.
 
 ### Home / Catalogue Page
 - Background: `#F8F7FF` (light lavender-white)
@@ -43,22 +43,22 @@
 - Accent / CTA: `#8B3CF7` (KwenuAI purple)
 - Borders: `#E8E5F0`
 - Card background: `#FFFFFF`
-- Font: `Poppins` (headings) + `Inter` (body) — load from Google Fonts
+- Font: `Poppins` (headings) + `Inter` (body), loaded from Google Fonts
 
 ### Course / Lesson Pages
-- Background: `#F8F7FF` (same light lavender-white as home — no dark theme)
+- Background: `#F8F7FF` (same light lavender-white as home, no dark theme)
 - Primary text: `#0D0E1A`
 - Secondary text: `#6B6A80`
 - Accent: `#8B3CF7`
 - Card background: `#FFFFFF`
 - Border: `#E8E5F0`
-- Font: Same — `Poppins` + `Inter`
+- Font: `Poppins` + `Inter` (same as home)
 
 ### Brand Rules
 - "Powered by KwenuAI" must appear in the footer of every page
 - Footer always links back to `https://kwenuai.com.ng`
 - The KwenuAI logo mark is a purple `#8B3CF7` square with rounded corners containing a white "K"
-- Never use gradients on buttons — flat fills only
+- Never use gradients on buttons: flat fills only
 - Purple `#8B3CF7` is the only accent color. Do not introduce other accent colors.
 
 ---
@@ -68,15 +68,15 @@
 ```
 /
 ├── app/
-│   ├── page.tsx                          # Home — course catalogue
+│   ├── page.tsx                          # Home: course catalogue
 │   ├── layout.tsx                        # Root layout with fonts + metadata
 │   ├── globals.css                       # Tailwind base + custom CSS vars
 │   └── course/
 │       └── [courseSlug]/
-│           ├── page.tsx                  # Course page — lesson list
+│           ├── page.tsx                  # Course page: lesson list
 │           └── lesson/
 │               └── [lessonId]/
-│                   └── page.tsx          # Lesson page — video player
+│                   └── page.tsx          # Lesson page: video player
 ├── components/
 │   ├── Navbar.tsx
 │   ├── Footer.tsx
@@ -141,7 +141,7 @@ export const courses: Course[] = [
       {
         id: 1,
         title: 'Context Profile',
-        description: 'Teach Claude who you are — once.',
+        description: 'Teach Claude who you are, once and for all.',
         duration: '2 min',
         tier: 'foundation',
         youtubeId: null,
@@ -227,7 +227,7 @@ export const courses: Course[] = [
   {
     slug: 'build-it-without-code',
     title: 'Build it without code',
-    tagline: 'Ship real products using Claude Code — no dev background needed.',
+    tagline: 'Ship real products using Claude Code: no dev background needed.',
     description: 'From idea to deployed app, step by step using AI as your developer.',
     tag: 'Claude Code · Building',
     status: 'coming-soon',
@@ -294,9 +294,9 @@ export function resetProgress(courseSlug: string): void {
 ### Home Page (`/`)
 - Show all courses from `courses.ts`
 - Live courses and coming-soon courses in separate sections
-- No filters, no search — keep it simple
+- No filters, no search: keep it simple
 - Clicking a live course card navigates to `/course/[slug]`
-- Coming-soon cards are not clickable — no navigation
+- Coming-soon cards are not clickable: no navigation
 
 ### Course Page (`/course/[slug]`)
 - Dark navy theme
@@ -305,17 +305,17 @@ export function resetProgress(courseSlug: string): void {
 - Group lessons by tier: Foundation / Expanding Claude / Power User
 - Completed lessons show a check mark
 - Current lesson (first incomplete) is highlighted
-- Locked lessons (future) show a lock icon — but are still clickable
+- Locked lessons (future) show a lock icon, but are still clickable
 - Clicking any lesson navigates to `/course/[slug]/lesson/[id]`
 - "Continue" button always jumps to the first incomplete lesson
 
 ### Lesson Page (`/course/[slug]/lesson/[id]`)
 - Dark navy theme
 - Show the video player prominently at top
-- If `youtubeId` is null — show a styled placeholder: "Video coming soon. Check back shortly."
+- If `youtubeId` is null, show a styled placeholder: "Video coming soon. Check back shortly."
 - Show lesson title and description below the video
 - Previous / Next lesson navigation at the bottom
-- "Mark as complete" button — fires `markComplete()` then navigates to next lesson
+- "Mark as complete" button: fires `markComplete()` then navigates to next lesson
 - Breadcrumb at top: Home → Course name → Lesson title
 
 ---
@@ -335,12 +335,12 @@ export function resetProgress(courseSlug: string): void {
 
 - No authentication or login of any kind
 - No payment or access gating
-- No backend API routes — this is a static content site
-- No CMS integration — all content lives in `courses.ts`
+- No backend API routes: this is a static content site
+- No CMS integration: all content lives in `courses.ts`
 - No comments, ratings, or social features
 - No newsletter or email capture on the portal itself
-- No dark/light mode toggle — home page is always light, course/lesson pages are always dark
-- No animations beyond simple Tailwind transitions — keep it fast on mobile Nigerian networks
+- No dark/light mode toggle: home page is always light, course/lesson pages are always dark
+- No animations beyond simple Tailwind transitions: keep it fast on mobile Nigerian networks
 
 ---
 
@@ -349,7 +349,7 @@ export function resetProgress(courseSlug: string): void {
 - Deploy to Vercel
 - Connect to GitHub repo
 - Every push to `main` auto-deploys
-- No environment variables needed — no secrets, no API keys
+- No environment variables needed: no secrets, no API keys
 - Target domain: `learn.kwenuai.com.ng` (Khamzi sets up subdomain in Vercel after deploy)
 
 ---
@@ -364,20 +364,20 @@ export function resetProgress(courseSlug: string): void {
 6. Open `/data/courses.ts`
 7. Find the correct lesson object
 8. Replace `youtubeId: null` with `youtubeId: 'PASTE_ID_HERE'`
-9. Push to GitHub — Vercel auto-deploys
+9. Push to GitHub: Vercel auto-deploys
 
 ---
 
 ## WHEN KHAMZI ASKS YOU TO BUILD SOMETHING NEW
 
-1. Check `courses.ts` first — does the data model support it?
+1. Check `courses.ts` first: does the data model support it?
 2. If yes, build the UI component against existing data
 3. If no, update the data model in `courses.ts` first, then build
 4. Always ask: does this need a backend, or can it be done statically? Default to static.
-5. Always test the mobile layout — majority of Trybe members are on phones
+5. Always test the mobile layout: majority of Trybe members are on phones
 6. Never add a dependency that isn't already in the project unless absolutely necessary
 
 ---
 
 *Last updated: July 2026 | KwenuAI Learn Portal*
-*Built by KwenuAI — kwenuai.com.ng*
+*Built by KwenuAI · kwenuai.com.ng*
