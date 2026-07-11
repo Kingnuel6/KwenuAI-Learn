@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { notFound, useRouter } from 'next/navigation'
+import ActionStepCard from '@/components/ActionStepCard'
 import VideoPlayer from '@/components/VideoPlayer'
 import { courses } from '@/data/courses'
 import { markComplete } from '@/lib/progress'
@@ -51,19 +52,39 @@ export default function LessonPage({
           <VideoPlayer youtubeId={lesson.youtubeId} />
         </div>
 
+        <p className="mb-1 font-body text-xs italic text-light-text-secondary">
+          Video: {lesson.notebooklmTitle}
+        </p>
         <h1 className="mb-2 font-heading text-2xl font-bold text-light-text">
           {lesson.title}
         </h1>
         <p className="mb-8 font-body text-light-text-secondary">{lesson.description}</p>
 
+        <div className="mb-8 rounded-xl border border-light-border bg-light-card p-5">
+          <h2 className="mb-2 font-heading text-sm font-semibold text-light-text">
+            Key takeaway
+          </h2>
+          <p className="font-body text-sm text-light-text-secondary">
+            {lesson.resources.takeaway}
+          </p>
+        </div>
+
+        <ActionStepCard actionStep={lesson.resources.actionStep} />
+
         <button
           onClick={handleMarkComplete}
-          className="mb-10 rounded-lg bg-brand-purple px-6 py-3 font-body text-sm font-semibold text-white"
+          className="mb-6 rounded-lg bg-brand-purple px-6 py-3 font-body text-sm font-semibold text-white"
         >
           Mark as complete
         </button>
 
-        <div className="flex items-center justify-between border-t border-light-border pt-6 font-body text-sm">
+        {nextLesson && (
+          <p className="mb-10 font-body text-sm italic text-light-text-secondary">
+            {lesson.resources.nextTeaser}
+          </p>
+        )}
+
+        <div className="mt-4 flex items-center justify-between border-t border-light-border pt-6 font-body text-sm">
           {prevLesson ? (
             <Link
               href={`/course/${course.slug}/lesson/${prevLesson.id}`}
