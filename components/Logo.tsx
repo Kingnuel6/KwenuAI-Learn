@@ -1,10 +1,15 @@
-export default function Logo({ size = 32 }: { size?: number }) {
+import Image from 'next/image'
+
+const LOGO_ASPECT_RATIO = 949 / 298
+
+export default function Logo({ height = 28 }: { height?: number }) {
   return (
-    <span
-      className="flex items-center justify-center rounded-lg bg-brand-purple font-heading font-bold text-white"
-      style={{ width: size, height: size, fontSize: size * 0.55 }}
-    >
-      K
-    </span>
+    <Image
+      src="/kwenuai-logo-black.png"
+      alt="KwenuAI"
+      width={Math.round(height * LOGO_ASPECT_RATIO)}
+      height={height}
+      priority
+    />
   )
 }

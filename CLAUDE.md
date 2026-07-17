@@ -57,7 +57,7 @@
 ### Brand Rules
 - "Powered by KwenuAI" must appear in the footer of every page
 - Footer always links back to `https://kwenuai.com.ng`
-- The KwenuAI logo mark is a purple `#8B3CF7` square with rounded corners containing a white "K"
+- Use the official KwenuAI logo wordmark, not a placeholder mark: `public/kwenuai-logo-black.png` on light backgrounds (the whole site, currently), `public/kwenuai-logo-white.png` reserved for any future dark background
 - Never use gradients on buttons: flat fills only
 - Purple `#8B3CF7` is the only accent color. Do not introduce other accent colors.
 
@@ -89,7 +89,8 @@
 ├── lib/
 │   └── progress.ts                       # localStorage progress helpers
 ├── public/
-│   └── kwenuai-logo.png
+│   ├── kwenuai-logo-black.png
+│   └── kwenuai-logo-white.png
 └── CLAUDE.md
 ```
 
