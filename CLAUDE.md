@@ -40,7 +40,7 @@
 - Background: `#F8F7FF` (light lavender-white)
 - Primary text: `#0D0E1A`
 - Secondary text: `#6B6A80`
-- Accent / CTA: `#8B3CF7` (KwenuAI purple)
+- Accent / CTA: `#92278F` (KwenuAI purple)
 - Borders: `#E8E5F0`
 - Card background: `#FFFFFF`
 - Font: `Poppins` (headings) + `Inter` (body), loaded from Google Fonts
@@ -49,7 +49,7 @@
 - Background: `#F8F7FF` (same light lavender-white as home, no dark theme)
 - Primary text: `#0D0E1A`
 - Secondary text: `#6B6A80`
-- Accent: `#8B3CF7`
+- Accent: `#92278F`
 - Card background: `#FFFFFF`
 - Border: `#E8E5F0`
 - Font: `Poppins` + `Inter` (same as home)
@@ -59,7 +59,7 @@
 - Footer always links back to `https://kwenuai.com.ng`
 - Use the official KwenuAI logo wordmark, not a placeholder mark: `public/kwenuai-logo-black.png` on light backgrounds (the whole site, currently), `public/kwenuai-logo-white.png` reserved for any future dark background
 - Never use gradients on buttons: flat fills only
-- Purple `#8B3CF7` is the only accent color. Do not introduce other accent colors.
+- Purple `#92278F` is the only accent color. Do not introduce other accent colors.
 
 ---
 
@@ -68,24 +68,31 @@
 ```
 /
 ├── app/
-│   ├── page.tsx                          # Home: course catalogue
+│   ├── page.tsx                          # Home: The AI Trybe Library (tabs: Courses/Videos/Reads & Guides/Tools)
 │   ├── layout.tsx                        # Root layout with fonts + metadata
 │   ├── globals.css                       # Tailwind base + custom CSS vars
-│   └── course/
-│       └── [courseSlug]/
-│           ├── page.tsx                  # Course page: lesson list
-│           └── lesson/
-│               └── [lessonId]/
-│                   └── page.tsx          # Lesson page: video player
+│   ├── course/
+│   │   └── [courseSlug]/
+│   │       ├── page.tsx                  # Course page: lesson list
+│   │       └── lesson/
+│   │           └── [lessonId]/
+│   │               └── page.tsx          # Lesson page: video player
+│   └── resource/
+│       └── [id]/
+│           └── page.tsx                  # Article resource page: renders markdown content
 ├── components/
 │   ├── Navbar.tsx
 │   ├── Footer.tsx
-│   ├── CourseCard.tsx
+│   ├── Logo.tsx
+│   ├── CourseCard.tsx                    # Wide horizontal card, Courses tab only
+│   ├── ResourceCard.tsx                  # Compact grid card, Videos/Reads/Tools tabs
 │   ├── LessonCard.tsx
 │   ├── VideoPlayer.tsx
+│   ├── ActionStepCard.tsx
 │   └── ProgressBar.tsx
 ├── data/
-│   └── courses.ts                        # ALL course and lesson data lives here
+│   ├── courses.ts                        # ALL course and lesson data lives here
+│   └── resources.ts                      # ALL video/article/tool resource data lives here
 ├── lib/
 │   └── progress.ts                       # localStorage progress helpers
 ├── public/
@@ -93,6 +100,36 @@
 │   └── kwenuai-logo-white.png
 └── CLAUDE.md
 ```
+
+---
+
+## RESOURCE LIBRARY (VIDEOS / READS & GUIDES / TOOLS)
+
+Separate from courses. Resources are standalone curated pieces (articles rewritten in-house, or links to external videos/tools), defined in `/data/resources.ts`.
+
+```typescript
+// /data/resources.ts
+
+export type ResourceType = 'article' | 'video' | 'tool'
+export type ResourceCategory = 'small-business' | 'content-creator' | 'student' | 'productivity'
+
+export type Resource = {
+  id: string
+  type: ResourceType
+  title: string
+  category: ResourceCategory[]
+  summary: string              // one-sentence description shown on the card
+  content: string              // full rewritten body (markdown), only used when type is 'article'
+  externalUrl: string | null   // for type 'video' or 'tool': link out directly
+  sourceUrl: string            // original source URL, stored but never displayed in the UI
+}
+```
+
+**Home page tabs:** Courses | Videos | Reads & Guides | Tools, each with a count badge. Tabs are client-side state (no routing). A category filter row (All, Small business, Content creator, Student, Productivity) appears under the tab bar whenever a resource tab (not Courses) is active.
+
+**Card behavior:** clicking an `article` card navigates to `/resource/[id]`. Clicking a `video` or `tool` card opens `externalUrl` in a new tab. No source attribution is ever shown on a card, only `summary` and category.
+
+**To add a resource:** add a new object to the `resources` array in `data/resources.ts`. Articles need `content` (markdown) and `externalUrl: null`. Videos/tools need `externalUrl` and leave `content` empty.
 
 ---
 
@@ -292,12 +329,14 @@ export function resetProgress(courseSlug: string): void {
 
 ## PAGE BEHAVIOUR RULES
 
-### Home Page (`/`)
-- Show all courses from `courses.ts`
-- Live courses and coming-soon courses in separate sections
-- No filters, no search: keep it simple
-- Clicking a live course card navigates to `/course/[slug]`
-- Coming-soon cards are not clickable: no navigation
+### Home Page (`/`), a.k.a. "The AI Trybe Library"
+- Hero: "The AI Trybe Library" + subtext
+- Tab bar: Courses | Videos | Reads & Guides | Tools, each with a count badge, filtered client-side (no routing)
+- Courses tab: live courses and coming-soon courses in separate sections, same logic as before, restyled as wide horizontal cards
+- Videos / Reads & Guides / Tools tabs: resources from `resources.ts` filtered by `type`, shown as a compact card grid
+- Category filter chips (All, Small business, Content creator, Student, Productivity) appear only on resource tabs, filtering by `category`
+- Clicking a live course card navigates to `/course/[slug]`; coming-soon cards are not clickable
+- Clicking an article resource card navigates to `/resource/[id]`; clicking a video/tool resource card opens `externalUrl` in a new tab
 
 ### Course Page (`/course/[slug]`)
 - Dark navy theme
