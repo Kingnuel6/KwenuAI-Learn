@@ -8,42 +8,10 @@ const CATEGORY_LABELS: Record<ResourceCategory, string> = {
   productivity: 'Productivity',
 }
 
-const TYPE_BADGE: Record<
-  Resource['type'],
-  { label: string; bg: string; text: string; icon: React.ReactNode }
-> = {
-  article: {
-    label: 'Guide',
-    bg: 'bg-badge-article-bg',
-    text: 'text-badge-article-text',
-    icon: (
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
-        <path d="M14 2v6h6" />
-      </svg>
-    ),
-  },
-  video: {
-    label: 'Video',
-    bg: 'bg-badge-video-bg',
-    text: 'text-badge-video-text',
-    icon: (
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M10 8.5v7l6-3.5-6-3.5Z" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  tool: {
-    label: 'Tool',
-    bg: 'bg-badge-tool-bg',
-    text: 'text-badge-tool-text',
-    icon: (
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L2 19l3 3 7.3-7.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2Z" />
-      </svg>
-    ),
-  },
+const TYPE_BADGE: Record<Resource['type'], { label: string; text: string }> = {
+  article: { label: 'Guide', text: 'text-badge-article-text' },
+  video: { label: 'Video', text: 'text-badge-video-text' },
+  tool: { label: 'Tool', text: 'text-badge-tool-text' },
 }
 
 export default function ResourceCard({ resource }: { resource: Resource }) {
@@ -51,17 +19,17 @@ export default function ResourceCard({ resource }: { resource: Resource }) {
   const categoryLabel = resource.category.map((c) => CATEGORY_LABELS[c]).join(', ')
 
   const cardContent = (
-    <div className="flex h-full flex-col rounded-xl border border-light-border bg-light-card p-4 transition-shadow hover:shadow-lg">
-      <span
-        className={`mb-3 inline-flex w-fit items-center gap-1 rounded-full px-3 py-1 font-body text-xs font-medium ${badge.bg} ${badge.text}`}
-      >
-        {badge.icon}
+    <div className="flex h-full flex-col rounded-[10px] border border-light-border bg-light-card p-4 transition-shadow hover:shadow-lg">
+      <span className={`mb-2 font-body text-xs font-bold uppercase tracking-wide ${badge.text}`}>
         {badge.label}
       </span>
-      <h3 className="mb-2 line-clamp-2 font-heading text-base font-semibold text-light-text">
+      <h3 className="mb-2 line-clamp-2 font-heading text-sm font-bold text-light-text">
         {resource.title}
       </h3>
-      <p className="mt-auto font-body text-xs text-light-text-muted">{categoryLabel}</p>
+      <p className="mb-3 font-body text-xs text-light-text-secondary">{resource.summary}</p>
+      <p className="mt-auto font-body text-xs font-medium text-light-text-muted">
+        {categoryLabel}
+      </p>
     </div>
   )
 

@@ -16,9 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "KwenuAI Learn",
+  title: "KwenuAI Learn: Free AI Courses, Tools & Guides",
   description:
-    "Free mini-courses for The AI Trybe, KwenuAI's WhatsApp learning community for non-technical Nigerians.",
+    "Learn AI the practical way. Free courses, hand-picked videos, guides, and tools, reviewed by KwenuAI. No signup required.",
 };
 
 export default function RootLayout({

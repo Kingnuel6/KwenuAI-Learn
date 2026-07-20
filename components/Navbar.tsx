@@ -11,6 +11,14 @@ export default function Navbar() {
             Learn
           </span>
         </Link>
+        <a
+          href="https://kwenuai.com.ng"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-body text-sm font-semibold text-light-text-secondary hover:text-light-text"
+        >
+          kwenuai.com.ng ↗
+        </a>
       </div>
     </header>
   )

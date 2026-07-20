@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
+import CopyableCodeBlock from '@/components/CopyableCodeBlock'
 import { resources, type ResourceCategory } from '@/data/resources'
 
 const CATEGORY_LABELS: Record<ResourceCategory, string> = {
@@ -8,6 +9,15 @@ const CATEGORY_LABELS: Record<ResourceCategory, string> = {
   'content-creator': 'Content creator',
   student: 'Student',
   productivity: 'Productivity',
+}
+
+function extractText(node: unknown): string {
+  if (typeof node === 'string') return node
+  if (Array.isArray(node)) return node.map(extractText).join('')
+  if (node && typeof node === 'object' && 'props' in node) {
+    return extractText((node as { props: { children?: unknown } }).props.children)
+  }
+  return ''
 }
 
 export default function ResourcePage({ params }: { params: { id: string } }) {
@@ -23,7 +33,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
           </Link>
           <span>→</span>
           <Link href="/" className="hover:text-light-text">
-            Library
+            Learn
           </Link>
           <span>→</span>
           <span className="text-light-text">{resource.title}</span>
@@ -88,6 +98,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
                   {children}
                 </a>
               ),
+              pre: ({ children }) => <CopyableCodeBlock>{extractText(children)}</CopyableCodeBlock>,
             }}
           >
             {resource.content}
@@ -98,7 +109,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
           href="/"
           className="font-body text-sm font-medium text-light-text-secondary hover:text-light-text"
         >
-          ← Back to Library
+          ← Back to KwenuAI Learn
         </Link>
       </div>
     </div>
