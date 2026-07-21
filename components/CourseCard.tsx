@@ -1,25 +1,6 @@
 import Link from 'next/link'
 import type { Course } from '@/data/courses'
 
-function CapIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      width="32"
-      height="32"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <path d="M22 10 12 5 2 10l10 5 10-5Z" />
-      <path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5" />
-    </svg>
-  )
-}
-
 export default function CourseCard({ course, flagship = false }: { course: Course; flagship?: boolean }) {
   const isLive = course.status === 'live'
 
@@ -33,7 +14,11 @@ export default function CourseCard({ course, flagship = false }: { course: Cours
           className="flex shrink-0 flex-col justify-center gap-2 p-6 sm:w-60"
           style={{ background: 'linear-gradient(180deg, #8B1E8E 0%, #53205E 100%)' }}
         >
-          <CapIcon className="text-white" />
+          <img
+            src={course.iconPath}
+            alt={`${course.title} icon`}
+            className="w-16 h-16 object-contain"
+          />
           <span className="font-body text-xs font-bold uppercase tracking-wide text-white/70">
             KwenuAI Course 01
           </span>
@@ -62,7 +47,11 @@ export default function CourseCard({ course, flagship = false }: { course: Cours
       }`}
     >
       <div className="flex shrink-0 items-center justify-center bg-brand-purple p-6 sm:w-40">
-        <CapIcon className="text-white" />
+        <img
+          src={course.iconPath}
+          alt={`${course.title} icon`}
+          className="w-16 h-16 object-contain"
+        />
       </div>
 
       <div className="flex flex-1 flex-col p-6">

@@ -39,6 +39,7 @@ export type Course = {
   lessonCount: number
   totalDuration: string
   colorTheme: 'purple' | 'dark' | 'teal'
+  iconPath: string
   lessons: Lesson[]
 }
 
@@ -53,6 +54,7 @@ export const courses: Course[] = [
     lessonCount: 9,
     totalDuration: '~18 min',
     colorTheme: 'purple',
+    iconPath: '/icons/claude-course-icon.png',
     lessons: [
       {
         id: 1,
@@ -416,6 +418,7 @@ Welcome to Level 5.`,
     lessonCount: 0,
     totalDuration: 'TBD',
     colorTheme: 'dark',
+    iconPath: '/icons/gpt-course-icon.png',
     lessons: [],
   },
   {
@@ -428,6 +431,7 @@ Welcome to Level 5.`,
     lessonCount: 0,
     totalDuration: 'TBD',
     colorTheme: 'teal',
+    iconPath: '/icons/claude-code-course-icon.png',
     lessons: [],
   },
 ]
