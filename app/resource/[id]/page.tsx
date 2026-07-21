@@ -2,7 +2,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import CopyableCodeBlock from '@/components/CopyableCodeBlock'
+import VideoPlayer from '@/components/VideoPlayer'
 import { resources, type ResourceCategory } from '@/data/resources'
+import { getYoutubeId } from '@/lib/youtube'
 
 const CATEGORY_LABELS: Record<ResourceCategory, string> = {
   'small-business': 'Small business',
@@ -21,8 +23,13 @@ function extractText(node: unknown): string {
 }
 
 export default function ResourcePage({ params }: { params: { id: string } }) {
-  const resource = resources.find((r) => r.id === params.id && r.type === 'article')
+  const resource = resources.find(
+    (r) => r.id === params.id && (r.type === 'article' || r.type === 'video')
+  )
   if (!resource) notFound()
+
+  const youtubeId =
+    resource.type === 'video' && resource.externalUrl ? getYoutubeId(resource.externalUrl) : null
 
   return (
     <div className="min-h-screen bg-light-bg">
@@ -43,6 +50,10 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
           {resource.title}
         </h1>
 
+        {resource.channel && (
+          <p className="mb-4 font-body text-sm text-light-text-secondary">{resource.channel}</p>
+        )}
+
         <div className="mb-8 flex flex-wrap gap-2">
           {resource.category.map((category) => (
             <span
@@ -54,6 +65,19 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
           ))}
         </div>
 
+        {resource.type === 'video' ? (
+          <div className="mb-10">
+            <VideoPlayer youtubeId={youtubeId} />
+            <a
+              href={resource.externalUrl ?? undefined}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block font-body text-sm font-medium text-brand-purple hover:underline"
+            >
+              Watch on YouTube ↗
+            </a>
+          </div>
+        ) : (
         <div className="mb-10">
           <ReactMarkdown
             components={{
@@ -104,6 +128,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
             {resource.content}
           </ReactMarkdown>
         </div>
+        )}
 
         <Link
           href="/"

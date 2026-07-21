@@ -15,6 +15,7 @@ export type Resource = {
   content: string              // full rewritten body (markdown), only used when type is 'article'
   externalUrl: string | null   // for type 'video' or 'tool': link out directly
   sourceUrl: string            // original source URL, stored but not displayed on the card
+  channel: string | null       // YouTube channel name, only used when type is 'video'
 }
 
 export const resources: Resource[] = [
@@ -37,6 +38,7 @@ Start with one annoying task, not ten. Pick the thing you do every day that does
 The free tier caps you at a small number of tasks per month. That's enough to prove the automation actually saves you time before you decide if it's worth paying for more.`,
     externalUrl: null,
     sourceUrl: 'https://www.joinhorizon.ai/p/openai-just-dropped-38b-on-aws',
+    channel: null,
   },
   {
     id: 'professional-email-template-using-ai-mailui',
@@ -47,6 +49,7 @@ The free tier caps you at a small number of tasks per month. That's enough to pr
     content: '',
     externalUrl: 'https://mailui.co',
     sourceUrl: 'https://www.joinhorizon.ai/p/google-s-nano-banana-pro-solves-ai-s-biggest-text-problem',
+    channel: null,
   },
   {
     id: 'product-launch-landing-page-in-youware',
@@ -57,6 +60,7 @@ The free tier caps you at a small number of tasks per month. That's enough to pr
     content: '',
     externalUrl: 'https://youware.com',
     sourceUrl: 'https://www.joinhorizon.ai/p/how-to-build-a-product-launch-landing-page-with-ai',
+    channel: null,
   },
   {
     id: 'pitch-a-business-deck-with-pitch-com',
@@ -67,6 +71,7 @@ The free tier caps you at a small number of tasks per month. That's enough to pr
     content: '',
     externalUrl: 'https://pitch.com',
     sourceUrl: 'https://www.joinhorizon.ai/p/softbank-and-openai-launch-joint-venture-in-japan',
+    channel: null,
   },
   {
     id: 'build-a-mini-ai-customer-support-bot-yourgpt',
@@ -77,6 +82,7 @@ The free tier caps you at a small number of tasks per month. That's enough to pr
     content: '',
     externalUrl: 'https://www.yourgpt.ai',
     sourceUrl: 'https://www.joinhorizon.ai/p/xai-s-grok-4-1-sets-new-standard-for-emotional-and-human-aligned-ai',
+    channel: null,
   },
   {
     id: 'record-and-summarize-meetings-on-a-mac-using-chatgpt',
@@ -101,6 +107,7 @@ If you're on a Mac, ChatGPT's desktop app records the whole thing, transcribes e
 Heads up: Record mode needs a Plus, Business, Team, Enterprise, or Edu ChatGPT plan, and right now it's Mac desktop app only, no Windows, no mobile. If you've got a MacBook, this alone is worth checking your plan for.`,
     externalUrl: null,
     sourceUrl: 'https://www.joinhorizon.ai/p/how-to-record-and-summarize-meetings-on-a-mac-using-chatgpt',
+    channel: null,
   },
   {
     id: 'work-with-pdfs-10x-faster-using-ai-updf',
@@ -111,6 +118,7 @@ Heads up: Record mode needs a Plus, Business, Team, Enterprise, or Edu ChatGPT p
     content: '',
     externalUrl: 'https://updf.com',
     sourceUrl: 'https://www.joinhorizon.ai/p/work-with-pdfs-10x-faster-using-ai',
+    channel: null,
   },
   {
     id: 'turn-any-skill-into-a-productized-service',
@@ -174,6 +182,7 @@ First message to me should be: ask for my skill, experience level, target client
 \`\`\``,
     externalUrl: null,
     sourceUrl: 'https://www.joinhorizon.ai/p/this-prompt-turns-any-skill-you-have-into-a-productized-service-with-packages-pricing-and-a-pitch',
+    channel: null,
   },
   {
     id: 'use-claude-to-build-edit-and-refine-presentations-inside-powerpoint',
@@ -184,6 +193,7 @@ First message to me should be: ask for my skill, experience level, target client
     content: '',
     externalUrl: 'https://www.anthropic.com',
     sourceUrl: 'https://www.joinhorizon.ai/p/how-to-use-claude-to-build-edit-and-refine-presentations-inside-powerpoint',
+    channel: null,
   },
   {
     id: 'the-linkedin-voice-cloner-30-day-post-generator-prompt',
@@ -268,6 +278,7 @@ Critical instructions:
 Set aside 30 minutes once, and you've got a month of content that sounds like you instead of zero posts and a guilty conscience.`,
     externalUrl: null,
     sourceUrl: 'https://www.joinhorizon.ai/p/this-prompt-writes-30-days-of-linkedin-posts-in-your-voice-from-a-paragraph-about-your-business',
+    channel: null,
   },
   {
     id: 'create-quizzes-flashcards-study-guides-with-gemini',
@@ -290,6 +301,7 @@ Gemini can build the whole study set for you in the time it takes to type one se
 It's not a replacement for actually understanding the material, but at 11pm the night before, it's the difference between a real review session and just re-reading the same page four times hoping something sticks.`,
     externalUrl: null,
     sourceUrl: 'https://www.joinhorizon.ai/p/how-to-create-quizzes-flashcards-more-with-gemini',
+    channel: null,
   },
   {
     id: 'create-qr-codes-in-seconds-with-chatgpt',
@@ -312,6 +324,7 @@ ChatGPT can generate a free, working QR code for any link directly inside a chat
 Works for anything: a WhatsApp number, an Instagram page, a payment link, a Google Form. Next time someone asks "how do I pay," point at the code instead of typing your account number for the sixth time.`,
     externalUrl: null,
     sourceUrl: 'https://www.joinhorizon.ai/p/create-qr-codes-in-seconds-with-chatgpt',
+    channel: null,
   },
   {
     id: 'make-any-pdf-beautiful-with-ai',
@@ -322,6 +335,7 @@ Works for anything: a WhatsApp number, an Instagram page, a payment link, a Goog
     content: '',
     externalUrl: 'https://moda.app',
     sourceUrl: 'https://www.joinhorizon.ai/p/make-any-pdf-beautiful-with-ai',
+    channel: null,
   },
   {
     id: 'stop-telling-chatgpt-analyze-my-business',
@@ -356,5 +370,116 @@ Here are the offers/services/products I currently sell: [list them with rough mo
 Ten minutes with these two prompts and you'll know more about where your money actually goes than a month of "just work harder" ever told you.`,
     externalUrl: null,
     sourceUrl: 'https://www.joinhorizon.ai/p/stop-telling-chatgpt-analyze-my-business-use-these-prompts-to-find-where-you-re-losing-money',
+    channel: null,
+  },
+  {
+    id: 'chatgpt-work-completely-changes-how-you-use-chatgpt',
+    type: 'video',
+    title: 'ChatGPT Work Completely Changes How You Use ChatGPT (full guide)',
+    category: ['productivity', 'small-business'],
+    summary: 'A full walkthrough of ChatGPT features most people never turn on.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=tqKGaqaQkNk',
+    sourceUrl: 'https://youtube.com/watch?v=tqKGaqaQkNk',
+    channel: 'Futurepedia',
+  },
+  {
+    id: 'from-zero-to-your-first-ai-voice-agent',
+    type: 'video',
+    title: 'From Zero to Your First AI Voice Agent in 18 Minutes (No Coding)',
+    category: ['small-business'],
+    summary: 'Build a voice agent that answers customer calls, no code required.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=oB7gia1kC_g',
+    sourceUrl: 'https://youtube.com/watch?v=oB7gia1kC_g',
+    channel: 'Liam Ottley',
+  },
+  {
+    id: 'full-claude-tutorial-beginner-to-advanced',
+    type: 'video',
+    title: 'Full Claude Tutorial: Beginner to Advanced in 19 Minutes',
+    category: ['productivity'],
+    summary: 'Everything Claude can do, from your first prompt to advanced workflows.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=WSPChlfxJyA',
+    sourceUrl: 'https://youtube.com/watch?v=WSPChlfxJyA',
+    channel: 'Futurepedia',
+  },
+  {
+    id: 'how-i-use-claude-to-automate-content-creation',
+    type: 'video',
+    title: 'How I Use Claude to Automate 99% of Content Creation (Full Guide)',
+    category: ['content-creator'],
+    summary: 'One creator\'s real Claude workflow for producing content on autopilot.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=WvuLxxDY37U',
+    sourceUrl: 'https://youtube.com/watch?v=WvuLxxDY37U',
+    channel: 'Jason Lee',
+  },
+  {
+    id: 'how-to-make-20000-a-month-with-claude-code',
+    type: 'video',
+    title: 'How to Make $20,000/Month with Claude Code',
+    category: ['small-business', 'productivity'],
+    summary: 'A real workflow breakdown using Claude Code, not just an income claim.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=NlGIl5-gpHM',
+    sourceUrl: 'https://youtube.com/watch?v=NlGIl5-gpHM',
+    channel: 'Liam Ottley',
+  },
+  {
+    id: 'how-to-start-making-ai-videos-in-2026',
+    type: 'video',
+    title: 'How to Start Making AI Videos in 2026: Full Course',
+    category: ['content-creator'],
+    summary: 'A full course on generating AI video content, start to finish.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=gY9KTfMGauU',
+    sourceUrl: 'https://youtube.com/watch?v=gY9KTfMGauU',
+    channel: 'Youri van Hofwegen',
+  },
+  {
+    id: 'how-to-use-google-gemini-better-than-99-percent',
+    type: 'video',
+    title: 'How to Use Google Gemini Better Than 99% of People',
+    category: ['student', 'productivity'],
+    summary: 'The Gemini features almost nobody actually uses.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=Zm9El6rng-o',
+    sourceUrl: 'https://youtube.com/watch?v=Zm9El6rng-o',
+    channel: 'Futurepedia',
+  },
+  {
+    id: 'learn-97-percent-of-claude-in-under-16-minutes',
+    type: 'video',
+    title: 'Learn 97% of Claude in Under 16 Minutes',
+    category: ['productivity'],
+    summary: 'The fastest, most-watched crash course on Claude out there.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=wZeOwqmSw84',
+    sourceUrl: 'https://youtube.com/watch?v=wZeOwqmSw84',
+    channel: 'Dan Martell',
+  },
+  {
+    id: 'master-notebooklm-in-2026',
+    type: 'video',
+    title: "Master NotebookLM in 2026 Before It's Too Late",
+    category: ['student', 'productivity'],
+    summary: 'Turn any material into study guides, quizzes, and audio overviews.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=KXT_YJ4rAMo',
+    sourceUrl: 'https://youtube.com/watch?v=KXT_YJ4rAMo',
+    channel: 'Science and Fun Motivation',
+  },
+  {
+    id: 'youre-not-behind-yet-how-to-build-ai-agents',
+    type: 'video',
+    title: "You're Not Behind (Yet): How to Build AI Agents in 2026 (no coding)",
+    category: ['small-business'],
+    summary: 'Build your first AI agent without writing a line of code.',
+    content: '',
+    externalUrl: 'https://youtube.com/watch?v=ibFJ--CH3cQ',
+    sourceUrl: 'https://youtube.com/watch?v=ibFJ--CH3cQ',
+    channel: 'Futurepedia',
   },
 ]
