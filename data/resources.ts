@@ -40,101 +40,42 @@ The free tier caps you at a small number of tasks per month. That's enough to pr
   },
   {
     id: 'professional-email-template-using-ai-mailui',
-    type: 'article',
+    type: 'tool',
     title: "Professional Email Template Using AI (MailUI)",
     category: ['small-business'],
     summary: "Fifteen minutes to an email that looks like a real business sent it.",
-    content: `You put together a newsletter announcing your new product, hit send, and check the open rate the next day: barely anyone opened it, and of the ones who did, almost nobody clicked. You go back and actually look at what you sent, and it's black text on white, no structure, no button, nothing that separates it from spam. It looked like an afterthought because, honestly, it was one, thrown together in fifteen minutes between other tasks.
-
-An email that looks unfinished doesn't get a second chance. People decide whether to keep reading in about two seconds.
-
-MailUI is a free drag-and-drop email builder that creates professional, branded email templates without needing any code or design software.
-
-MailUI's drag-and-drop builder fixes that without needing to touch code.
-
-1. Go to [MailUI.co](http://MailUI.co), log in, and open the Email Builder.
-2. Pick a ready-made template or start from a blank one.
-3. Drag in blocks for the header, body, and footer, keep the structure simple.
-4. Set your brand colors, fonts, and one clear CTA button. One offer, one button, no clutter.
-5. Write a short subject line and preheader, a clear headline, and scannable body text.
-6. Add personalization tags like {first_name} if your email platform supports it, then preview on desktop and mobile before sending a test.
-7. Export the HTML and upload it into whatever you send from.
-
-Fifteen minutes gets you something that actually looks like it came from a real business, and that's usually the whole difference between opened and ignored.`,
-    externalUrl: null,
+    content: '',
+    externalUrl: 'https://mailui.co',
     sourceUrl: 'https://www.joinhorizon.ai/p/google-s-nano-banana-pro-solves-ai-s-biggest-text-problem',
   },
   {
     id: 'product-launch-landing-page-in-youware',
-    type: 'article',
+    type: 'tool',
     title: "Product-Launch Landing Page in YouWare",
     category: ['small-business'],
     summary: "Get a real launch page live in two days, not two weeks.",
-    content: `You're two days from launching a product and someone asks for "the link," meaning a proper page where people can actually see what it is, not just a caption on Instagram. You don't have one. Building a real website feels like a whole separate project, one you don't have the time, budget, or patience for two days before launch, so you consider just skipping it and hoping the Instagram post does enough work on its own.
-
-It won't. A caption disappears in the feed within a day. A proper page is where someone lands when they're actually interested, and if that page doesn't exist, neither does the sale you were hoping for.
-
-YouWare is a no-code website builder that can generate a complete, working landing page, hero section, features, pricing, FAQ, from a single written prompt, no developer required.
-
-YouWare builds the whole thing, hero section, features, testimonials, pricing, FAQ, from a single prompt, no developer required.
-
-1. Create a YouWare account, confirm your email, and start a new project. Choose a Landing Page template or a blank site.
-2. Generate the page with one prompt: "Create a modern product-launch landing page with hero, features, testimonials, email signup, pricing, FAQ, and footer. Use my brand colors and a clean, responsive layout."
-3. Replace the placeholder headline, subheadline, and CTAs with your real copy, and add product screenshots and 3 core features.
-4. Connect email capture (Mailchimp or similar) so you're actually collecting leads, not just showing a form that goes nowhere.
-5. Preview on mobile first, since most of your visitors will land on a phone, fix any spacing or button issues, then publish to a YouWare subdomain or connect your own domain.
-
-Two days is enough time to have a real page live before launch, instead of a caption that vanishes into the feed by the following morning.`,
-    externalUrl: null,
+    content: '',
+    externalUrl: 'https://youware.com',
     sourceUrl: 'https://www.joinhorizon.ai/p/how-to-build-a-product-launch-landing-page-with-ai',
   },
   {
     id: 'pitch-a-business-deck-with-pitch-com',
-    type: 'article',
+    type: 'tool',
     title: "Pitch a Business Deck with Pitch.com's AI Presentation Maker",
     category: ['small-business'],
     summary: "Turn a handful of bullet points into an investor-ready deck.",
-    content: `You finally got a meeting with an investor, or a bank, or a grant panel, whatever the opportunity is, it's real and it's in three days. You open PowerPoint to start the deck and immediately hit the wall everyone hits: you know your business better than anyone in the room, but you have no idea how to make that knowledge look like a deck a stranger can understand in ten slides. You end up with either a wall of text nobody will read, or six slides that don't actually say anything, three days from now, still staring at slide one.
-
-The deck is often the difference between getting a real conversation and getting a polite no. Not because your business is worse than the ones that got funded, but because the pitch didn't communicate it.
-
-Pitch is a free presentation tool with an AI Presentation Maker that turns short bullet points into a structured, investor-ready slide deck.
-
-Pitch's AI Presentation Maker turns a handful of bullet points into a structured deck you can actually walk someone through.
-
-1. Write short bullets for 10-12 slides: Problem, Solution, Market, Product, Traction, Business Model, Competition, Team, Financials, and the Ask.
-2. Go to [pitch.com](http://pitch.com), create a free account, click "New Presentation," and pick a pitch or investor template.
-3. Select AI Presentation Maker and type a short brief describing your business and what you're asking for, it drafts structured slides from that.
-4. Replace the stock visuals with your own product photos or real numbers, and match your brand colors.
-5. Keep one message per slide. Export as PDF or PPTX, or share a link, then actually practice saying it out loud before you send it to anyone.
-
-Good for accelerator applications, a bank loan pitch, or a grant submission. Three days is enough time to build something that actually gets you a second conversation, if you stop trying to write it from a blank page.`,
-    externalUrl: null,
+    content: '',
+    externalUrl: 'https://pitch.com',
     sourceUrl: 'https://www.joinhorizon.ai/p/softbank-and-openai-launch-joint-venture-in-japan',
   },
   {
     id: 'build-a-mini-ai-customer-support-bot-yourgpt',
-    type: 'article',
+    type: 'tool',
     title: "Build a Mini AI Customer Support Bot (YourGPT)",
     category: ['small-business'],
     summary: "Answer customer questions automatically, even while you're asleep.",
-    content: `It's 10pm and your Instagram DMs have four new messages: "is this still available," "do you deliver to Surulere," "how much for the blue one," and one customer asking the exact same question you already answered this morning. You're not running a business at this point, you're running a customer service desk, alone, with no closing time, and every hour you spend retyping the same answer is an hour you're not spending on the parts of the business that actually need you.
-
-The volume itself isn't the problem, the repetition is. Most of what people ask you has a fixed answer. It doesn't need your judgment, it needs a fast, correct response, at any hour, without you personally typing it.
-
-YourGPT is a tool that builds a custom chatbot trained on your own business information, so it can answer customer questions automatically on your website or WhatsApp, and hand off to you only when it's genuinely stuck.
-
-YourGPT builds a chatbot trained on your own business info that handles exactly this, and hands off to you only when it's genuinely stuck.
-
-1. Create a YourGPT account and start a new agent project.
-2. Go to the Training / Knowledge Base section and feed it your real business info: paste your website URLs (FAQ, policies), upload key documents (PDFs, price lists), and add manual Q&A pairs for anything that needs an exact answer, delivery time, return policy, pricing.
-3. Set the widget's colors, logo, and welcome message to match your brand.
-4. Define a trigger phrase like "talk to an agent" and set up an alert (Slack or email) for whenever the bot isn't confident, so a real person steps in.
-5. Copy the widget script from Integrations and paste it into your website (works with Shopify, WordPress, and most site builders).
-6. Test it with the questions your customers actually ask, then switch it to Active.
-
-Check the Resolution Rate weekly and feed it the questions it couldn't answer to keep it improving. Built for anyone running volume on WhatsApp Business, Instagram, or a storefront site who's tired of being the customer service desk at 10pm.`,
-    externalUrl: null,
+    content: '',
+    externalUrl: 'https://www.yourgpt.ai',
     sourceUrl: 'https://www.joinhorizon.ai/p/xai-s-grok-4-1-sets-new-standard-for-emotional-and-human-aligned-ai',
   },
   {
@@ -163,26 +104,12 @@ Heads up: Record mode needs a Plus, Business, Team, Enterprise, or Edu ChatGPT p
   },
   {
     id: 'work-with-pdfs-10x-faster-using-ai-updf',
-    type: 'article',
+    type: 'tool',
     title: "Work with PDFs 10x Faster Using AI (UPDF)",
     category: ['student', 'small-business', 'productivity'],
     summary: "Ask your PDF a question instead of reading the whole thing.",
-    content: `You've got a 40-page supplier contract in your downloads folder, written in English that seems designed specifically to make you fall asleep. You need to know exactly one thing from it: the payment terms. So you open it, start reading, lose focus by page 3, and end up scrolling to the end hoping the important part is highlighted somehow. It isn't. Now you're either reading the whole thing properly, which eats your afternoon, or signing something you haven't fully understood, which is worse.
-
-This is the actual cost of PDFs: they're not built to be searched, they're built to be printed. Every question you have about one turns into a manual hunt.
-
-UPDF is a PDF app with a built-in AI Assistant that lets you ask questions about a document directly, instead of reading the whole thing.
-
-UPDF fixes the actual friction, not just the viewing.
-
-1. Go to the UPDF website and download the app for your device.
-2. Install it and drop in your PDF.
-3. Use the built-in AI Assistant to chat with the document directly: "what are the payment terms" gets you an answer in seconds instead of a full read-through.
-4. Use side-by-side translation if the document isn't in a language you're fully comfortable with, it keeps the original layout intact while showing the translation next to it (12 languages supported).
-5. Convert to Word, Excel, or PowerPoint when you actually need to edit the content, not just read it.
-
-It's freemium, the free version has limits, but no forced trial-then-charge trap. Good for students buried in readings and for anyone who deals with contracts, reports, or research PDFs on a regular basis. Next contract, you'll know the payment terms in thirty seconds instead of an afternoon.`,
-    externalUrl: null,
+    content: '',
+    externalUrl: 'https://updf.com',
     sourceUrl: 'https://www.joinhorizon.ai/p/work-with-pdfs-10x-faster-using-ai',
   },
   {
@@ -250,26 +177,12 @@ First message to me should be: ask for my skill, experience level, target client
   },
   {
     id: 'use-claude-to-build-edit-and-refine-presentations-inside-powerpoint',
-    type: 'article',
+    type: 'tool',
     title: "Use Claude to Build, Edit, and Refine Presentations Inside PowerPoint",
     category: ['small-business', 'content-creator', 'productivity'],
     summary: "Skip the blank-slide problem entirely.",
-    content: `It's 11pm the night before the pitch, and you're still moving text boxes around slide 7, trying to make "Our Growth Strategy" not look like it was designed by someone who's never opened PowerPoint before tonight. You've rewritten the same three bullet points four times. The deck is due at 9am. You are, at this point, just rearranging furniture in a house that was never going to look good no matter where the couch goes.
-
-This is the actual cost of building decks from a blank slide: it's not that you don't have good ideas, it's that turning ideas into slides that look intentional eats hours you don't have the night before something matters.
-
-Claude's PowerPoint add-in is a Microsoft Marketplace tool that lets you build and edit real presentation slides using plain-language instructions, instead of starting from a blank slide.
-
-Claude's PowerPoint add-in skips the blank-slide part entirely. You describe what you need in plain language, it builds and edits the actual slides.
-
-1. Install the "Claude by Anthropic in PowerPoint" add-in from the Microsoft Marketplace.
-2. Open PowerPoint. You'll find Claude under the add-ins section, click it to open the sidebar.
-3. Ask it to build a full deck from a brief: "Create a presentation based on this marketing campaign brief. I need about 12 slides covering target audience, strategy, timeline, budget, and expected outcomes."
-4. Ask it to match your existing template if you already have brand slides, so it doesn't look like it was bolted on from somewhere else.
-5. Keep editing slide by slide with follow-up prompts instead of manually dragging text boxes around at midnight.
-
-Heads up: this add-in needs a Claude Pro, Max, Team, or Enterprise plan, it's not on the free tier. Worth it the first time you're not still awake at midnight the night before a pitch.`,
-    externalUrl: null,
+    content: '',
+    externalUrl: 'https://www.anthropic.com',
     sourceUrl: 'https://www.joinhorizon.ai/p/how-to-use-claude-to-build-edit-and-refine-presentations-inside-powerpoint',
   },
   {
@@ -402,26 +315,12 @@ Works for anything: a WhatsApp number, an Instagram page, a payment link, a Goog
   },
   {
     id: 'make-any-pdf-beautiful-with-ai',
-    type: 'article',
+    type: 'tool',
     title: "Make Any PDF Beautiful with AI",
     category: ['small-business', 'content-creator'],
     summary: "Turn an ugly rate card or resume into something that looks designed.",
-    content: `You send your rate card to a potential client. Fifteen minutes later they've gone quiet. You check it again and see it for what it actually is: black text on a white background, Times New Roman, formatted in Word years ago and never touched since. Compare that to the last "professional" quote you received from someone else, clean columns, a logo, a bit of color, and you already know why they went quiet.
-
-This isn't really about design skill. Most people running a small business or freelance gig don't have the time or the software to make things look expensive. You end up choosing between spending a whole afternoon fighting with Canva, or sending the ugly version anyway and hoping the client judges you on the numbers, not the paper.
-
-Moda is a tool that rebuilds a poorly formatted PDF, a resume, invoice, or rate card, into a properly designed version, using free monthly credits and no design skill required.
-
-Moda skips the afternoon. Upload the ugly PDF, get a rebuilt, designed version back.
-
-1. Go to [moda.app](http://moda.app) and sign in (you get free monthly credits).
-2. Upload the PDF you want fixed, resume, invoice, rate card, whatever's embarrassing you right now.
-3. Moda pulls out the text and images and rebuilds the layout with real design.
-4. Make manual tweaks to text, images, or spacing if something's off.
-5. Export it back out as a PDF.
-
-Try it on the free tier before deciding whether the paid version is worth it. The next quote you send should look like the business you're actually trying to run, not the one you started with a laptop and good intentions.`,
-    externalUrl: null,
+    content: '',
+    externalUrl: 'https://moda.app',
     sourceUrl: 'https://www.joinhorizon.ai/p/make-any-pdf-beautiful-with-ai',
   },
   {
