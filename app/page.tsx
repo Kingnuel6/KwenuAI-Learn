@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import CourseCard from '@/components/CourseCard'
 import ResourceCard from '@/components/ResourceCard'
+import BusinessAuditModal from '@/components/BusinessAuditModal'
 import { courses } from '@/data/courses'
 import { resources, type ResourceCategory } from '@/data/resources'
 
@@ -71,6 +72,7 @@ const FAQ_JSON_LD = {
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TabKey>('courses')
   const [activeCategory, setActiveCategory] = useState<'all' | ResourceCategory>('all')
+  const [isAuditModalOpen, setIsAuditModalOpen] = useState(false)
 
   const liveCourses = courses.filter((c) => c.status === 'live')
   const comingSoonCourses = courses.filter((c) => c.status === 'coming-soon')
@@ -118,6 +120,12 @@ export default function Home() {
                 {tab.label}
               </button>
             ))}
+            <button
+              onClick={() => setIsAuditModalOpen(true)}
+              className="whitespace-nowrap rounded-lg border border-light-border bg-white px-4 py-2 text-light-text-secondary"
+            >
+              Business AI Audit
+            </button>
           </div>
         </div>
 
@@ -214,6 +222,8 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
         />
       </main>
+
+      <BusinessAuditModal open={isAuditModalOpen} onClose={() => setIsAuditModalOpen(false)} />
     </div>
   )
 }
