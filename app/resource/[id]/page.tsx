@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import CopyableCodeBlock from '@/components/CopyableCodeBlock'
 import VideoPlayer from '@/components/VideoPlayer'
+import GuideGate from '@/components/GuideGate'
 import { resources, type ResourceCategory } from '@/data/resources'
 import { getYoutubeId } from '@/lib/youtube'
 
@@ -79,6 +80,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
           </div>
         ) : (
         <div className="mb-10">
+          <GuideGate>
           <ReactMarkdown
             components={{
               h1: ({ children }) => (
@@ -127,6 +129,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
           >
             {resource.content}
           </ReactMarkdown>
+          </GuideGate>
         </div>
         )}
 

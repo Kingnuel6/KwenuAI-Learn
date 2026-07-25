@@ -4,9 +4,12 @@ import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import CourseCard from '@/components/CourseCard'
 import ResourceCard from '@/components/ResourceCard'
-import BusinessAuditModal from '@/components/BusinessAuditModal'
+import LeadCaptureModal from '@/components/LeadCaptureModal'
 import { courses } from '@/data/courses'
 import { resources, type ResourceCategory } from '@/data/resources'
+import { hasUnlockedGuides, markGuidesUnlocked } from '@/lib/leads'
+
+const GEM_URL = 'https://gemini.google.com/gem/1Gvrzd7khKZi_tZiIVGZdfrjDw-vyRVDP?usp=sharing'
 
 type TabKey = 'courses' | 'video' | 'article' | 'tool'
 
@@ -73,12 +76,23 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<TabKey>('courses')
   const [activeCategory, setActiveCategory] = useState<'all' | ResourceCategory>('all')
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false)
+  const [isGuidesModalOpen, setIsGuidesModalOpen] = useState(false)
 
   const liveCourses = courses.filter((c) => c.status === 'live')
   const comingSoonCourses = courses.filter((c) => c.status === 'coming-soon')
 
   function handleTabChange(tab: TabKey) {
+    if (tab === 'article' && !hasUnlockedGuides()) {
+      setIsGuidesModalOpen(true)
+      return
+    }
     setActiveTab(tab)
+    setActiveCategory('all')
+  }
+
+  function handleGuidesUnlocked() {
+    markGuidesUnlocked()
+    setActiveTab('article')
     setActiveCategory('all')
   }
 
@@ -223,7 +237,29 @@ export default function Home() {
         />
       </main>
 
-      <BusinessAuditModal open={isAuditModalOpen} onClose={() => setIsAuditModalOpen(false)} />
+      <LeadCaptureModal
+        open={isAuditModalOpen}
+        onClose={() => setIsAuditModalOpen(false)}
+        headline="Free AI Business Audit"
+        body="Answer a few quick questions and get a personalized report on exactly where AI can help your business, ranked by impact, with a 30-day action plan. Takes about 5 minutes."
+        submitLabel="Start My Audit"
+        source="business-audit"
+        successMessage="Redirecting you now..."
+        errorMessage="Having trouble saving your info, but let's get you started anyway..."
+        onComplete={() => window.open(GEM_URL, '_blank', 'noopener,noreferrer')}
+      />
+
+      <LeadCaptureModal
+        open={isGuidesModalOpen}
+        onClose={() => setIsGuidesModalOpen(false)}
+        headline="Get free access to this guide"
+        body="Enter your details once to unlock every guide on KwenuAI Learn. No spam, just AI resources worth your time."
+        submitLabel="Unlock Guides"
+        source="guides-gate"
+        successMessage="Unlocking your guides..."
+        errorMessage="Having trouble saving your info, but here's your guide anyway..."
+        onComplete={handleGuidesUnlocked}
+      />
     </div>
   )
 }

@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 const APPS_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbzJKxbJuR_4RelSH66q8TlCTTRczJOdAyGexMGd73pD3t90n6C8Tu_PCvqDfMhqjr08/exec'
-const GEM_URL = 'https://gemini.google.com/gem/1Gvrzd7khKZi_tZiIVGZdfrjDw-vyRVDP?usp=sharing'
 
 const SEGMENTS = [
   'Student',
@@ -19,12 +18,26 @@ type Status = 'idle' | 'submitting' | 'success' | 'error'
 
 type Errors = { name?: string; email?: string; segment?: string }
 
-export default function BusinessAuditModal({
+export default function LeadCaptureModal({
   open,
   onClose,
+  headline,
+  body,
+  submitLabel,
+  source,
+  successMessage,
+  errorMessage,
+  onComplete,
 }: {
   open: boolean
   onClose: () => void
+  headline: string
+  body: string
+  submitLabel: string
+  source: string
+  successMessage: string
+  errorMessage: string
+  onComplete: () => void
 }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -73,7 +86,7 @@ export default function BusinessAuditModal({
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), segment }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), segment, source }),
       })
     } catch {
       ok = false
@@ -82,7 +95,7 @@ export default function BusinessAuditModal({
     setStatus(ok ? 'success' : 'error')
 
     setTimeout(() => {
-      window.open(GEM_URL, '_blank', 'noopener,noreferrer')
+      onComplete()
       handleClose()
     }, 1000)
   }
@@ -106,19 +119,12 @@ export default function BusinessAuditModal({
           ✕
         </button>
 
-        <h2 className="mb-2 pr-6 font-heading text-xl font-bold text-light-text">
-          Free AI Business Audit
-        </h2>
-        <p className="mb-6 font-body text-sm text-light-text-secondary">
-          Answer a few quick questions and get a personalized report on exactly where AI can help
-          your business, ranked by impact, with a 30-day action plan. Takes about 5 minutes.
-        </p>
+        <h2 className="mb-2 pr-6 font-heading text-xl font-bold text-light-text">{headline}</h2>
+        <p className="mb-6 font-body text-sm text-light-text-secondary">{body}</p>
 
         {status === 'success' || status === 'error' ? (
           <p className="py-6 text-center font-body text-sm font-medium text-light-text">
-            {status === 'success'
-              ? 'Redirecting you now...'
-              : "Having trouble saving your info, but let's get you started anyway..."}
+            {status === 'success' ? successMessage : errorMessage}
           </p>
         ) : (
           <form onSubmit={handleSubmit} noValidate>
@@ -181,7 +187,7 @@ export default function BusinessAuditModal({
               disabled={submitting}
               className="w-full rounded-lg bg-brand-purple px-4 py-2.5 font-body text-sm font-semibold text-white disabled:opacity-60"
             >
-              {status === 'submitting' ? 'Submitting...' : 'Start My Audit'}
+              {status === 'submitting' ? 'Submitting...' : submitLabel}
             </button>
           </form>
         )}
