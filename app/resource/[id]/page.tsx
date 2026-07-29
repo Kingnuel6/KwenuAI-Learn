@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import CopyableCodeBlock from '@/components/CopyableCodeBlock'
 import VideoPlayer from '@/components/VideoPlayer'
-import GuideGate from '@/components/GuideGate'
+import ContentGate from '@/components/ContentGate'
 import { resources, type ResourceCategory } from '@/data/resources'
 import { getYoutubeId } from '@/lib/youtube'
 
@@ -68,6 +68,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
 
         {resource.type === 'video' ? (
           <div className="mb-10">
+            <ContentGate>
             <VideoPlayer youtubeId={youtubeId} />
             <a
               href={resource.externalUrl ?? undefined}
@@ -77,10 +78,11 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
             >
               Watch on YouTube ↗
             </a>
+            </ContentGate>
           </div>
         ) : (
         <div className="mb-10">
-          <GuideGate>
+          <ContentGate>
           <ReactMarkdown
             components={{
               h1: ({ children }) => (
@@ -129,7 +131,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
           >
             {resource.content}
           </ReactMarkdown>
-          </GuideGate>
+          </ContentGate>
         </div>
         )}
 

@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from '@/components/Navbar'
 import CourseCard from '@/components/CourseCard'
 import ResourceCard from '@/components/ResourceCard'
 import LeadCaptureModal from '@/components/LeadCaptureModal'
 import { courses } from '@/data/courses'
 import { resources, type ResourceCategory } from '@/data/resources'
-import { hasUnlockedGuides, markGuidesUnlocked } from '@/lib/leads'
+import { hasUnlockedContent, markContentUnlocked } from '@/lib/leads'
 
 const GEM_URL = 'https://gemini.google.com/gem/1Gvrzd7khKZi_tZiIVGZdfrjDw-vyRVDP?usp=sharing'
 
@@ -76,24 +76,37 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<TabKey>('courses')
   const [activeCategory, setActiveCategory] = useState<'all' | ResourceCategory>('all')
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false)
-  const [isGuidesModalOpen, setIsGuidesModalOpen] = useState(false)
+  const [isGateModalOpen, setIsGateModalOpen] = useState(false)
+  const [contentUnlocked, setContentUnlocked] = useState(false)
+  const [pendingTab, setPendingTab] = useState<TabKey | null>(null)
+
+  useEffect(() => {
+    if (hasUnlockedContent()) {
+      setContentUnlocked(true)
+    } else {
+      setIsGateModalOpen(true)
+    }
+  }, [])
 
   const liveCourses = courses.filter((c) => c.status === 'live')
   const comingSoonCourses = courses.filter((c) => c.status === 'coming-soon')
 
   function handleTabChange(tab: TabKey) {
-    if (tab === 'article' && !hasUnlockedGuides()) {
-      setIsGuidesModalOpen(true)
+    if (!contentUnlocked) {
+      setPendingTab(tab)
+      setIsGateModalOpen(true)
       return
     }
     setActiveTab(tab)
     setActiveCategory('all')
   }
 
-  function handleGuidesUnlocked() {
-    markGuidesUnlocked()
-    setActiveTab('article')
+  function handleContentUnlocked() {
+    markContentUnlocked()
+    setContentUnlocked(true)
+    setActiveTab(pendingTab ?? 'courses')
     setActiveCategory('all')
+    setPendingTab(null)
   }
 
   const filteredResources =
@@ -167,7 +180,22 @@ export default function Home() {
           </div>
         )}
 
-        {activeTab === 'courses' ? (
+        {!contentUnlocked ? (
+          <section className="mb-12 rounded-xl border border-light-border bg-light-card p-10 text-center">
+            <h2 className="mb-2 font-heading text-lg font-bold text-light-text">
+              Get free access to KwenuAI Learn
+            </h2>
+            <p className="mb-5 font-body text-sm text-light-text-secondary">
+              Enter your details once to unlock every course, video, guide, and tool on this site.
+            </p>
+            <button
+              onClick={() => setIsGateModalOpen(true)}
+              className="rounded-lg bg-brand-purple px-5 py-2.5 font-body text-sm font-semibold text-white"
+            >
+              Unlock KwenuAI Learn
+            </button>
+          </section>
+        ) : activeTab === 'courses' ? (
           <>
             <section className="mb-12">
               {liveCourses.map((course) => (
@@ -250,15 +278,15 @@ export default function Home() {
       />
 
       <LeadCaptureModal
-        open={isGuidesModalOpen}
-        onClose={() => setIsGuidesModalOpen(false)}
-        headline="Get free access to this guide"
-        body="Enter your details once to unlock every guide on KwenuAI Learn. No spam, just AI resources worth your time."
-        submitLabel="Unlock Guides"
-        source="guides-gate"
-        successMessage="Unlocking your guides..."
-        errorMessage="Having trouble saving your info, but here's your guide anyway..."
-        onComplete={handleGuidesUnlocked}
+        open={isGateModalOpen}
+        onClose={() => setIsGateModalOpen(false)}
+        headline="Get free access to KwenuAI Learn"
+        body="Enter your details once to unlock every course, video, guide, and tool on this site. No spam, just AI resources worth your time."
+        submitLabel="Unlock KwenuAI Learn"
+        source="site-gate"
+        successMessage="Unlocking KwenuAI Learn..."
+        errorMessage="Having trouble saving your info, but here's your content anyway..."
+        onComplete={handleContentUnlocked}
       />
     </div>
   )

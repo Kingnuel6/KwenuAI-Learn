@@ -1,10 +1,11 @@
 // /lib/leads.ts
-// localStorage helpers for gates that should only prompt once per browser.
+// localStorage helper for the site-wide lead gate: prompts once per browser.
 
 const LEADS_KEY = 'kwenuai_learn_leads'
 
 type LeadFlags = {
-  guides?: boolean
+  unlocked?: boolean
+  guides?: boolean // legacy flag from the guides-only gate, still honored
 }
 
 function readFlags(): LeadFlags {
@@ -18,13 +19,14 @@ function readFlags(): LeadFlags {
   }
 }
 
-export function hasUnlockedGuides(): boolean {
-  return !!readFlags().guides
+export function hasUnlockedContent(): boolean {
+  const flags = readFlags()
+  return !!(flags.unlocked || flags.guides)
 }
 
-export function markGuidesUnlocked(): void {
+export function markContentUnlocked(): void {
   if (typeof window === 'undefined') return
   const flags = readFlags()
-  flags.guides = true
+  flags.unlocked = true
   localStorage.setItem(LEADS_KEY, JSON.stringify(flags))
 }
